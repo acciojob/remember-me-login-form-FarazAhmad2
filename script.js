@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const submitButton = document.getElementById('submit');
 
   // Check if there are saved credentials
-  if (localStorage.getItem(JSON.stringify(usernameInput.value))) {
+  if (localStorage.getItem('')) {
       const existingButton = document.createElement('button');
       existingButton.id = 'existing';
       existingButton.textContent = 'Login as existing user';
