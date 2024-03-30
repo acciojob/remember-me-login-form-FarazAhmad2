@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const submitButton = document.getElementById('submit');
 
   // Check if there are saved credentials
-  if (localStorage.getItem('username') && localStorage.getItem('password')) {
+  if (localStorage.getItem(JSON.stringify(usernameInput.value))) {
       const existingButton = document.createElement('button');
       existingButton.id = 'existing';
       existingButton.textContent = 'Login as existing user';
       form.appendChild(existingButton);
 
       existingButton.addEventListener('click', function() {
-          alert('Logged in as ' + localStorage.getItem('username'));
+          alert('Logged in as ' + localStorage.getItem(JSON.stringify(usernameInput.value)));
       });
   }
 
@@ -29,12 +29,10 @@ document.addEventListener('DOMContentLoaded', function() {
       // Check if "Remember me" is checked
       if (rememberCheckbox.checked) {
           // Save credentials to local storage
-          localStorage.setItem('username', username);
-          localStorage.setItem('password', password);
+          localStorage.setItem(JSON.stringify(username), JSON.stringify(password));
       } else {
           // Remove credentials from local storage
-          localStorage.removeItem('username');
-          localStorage.removeItem('password');
+          localStorage.removeItem(JSON.stringify(username));
       }
 
       // Display alert
